@@ -17,7 +17,7 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn
-    private List<TripBooking> tripBOokingList = new ArrayList<>();
+    private List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Customer(String mobile, String password) {
         this.mobile = mobile;
@@ -51,11 +51,11 @@ public class Customer {
         this.password = password;
     }
 
-    public List<TripBooking> getTripBOokingList() {
-        return tripBOokingList;
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
     }
 
     public void setTripBOokingList(List<TripBooking> tripBOokingList) {
-        this.tripBOokingList = tripBOokingList;
+        this.tripBookingList = tripBOokingList;
     }
 }

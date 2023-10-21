@@ -64,7 +64,11 @@ public class CustomerServiceImpl implements CustomerService {
 		TripBooking bookedTrip = new TripBooking(fromLocation, toLocation, distanceInKm, TripStatus.CONFIRMED, bill, driver, customer);
 		driver.getCab().setAvailable(false);
 
+		driver.getTripBookingList().add(bookedTrip);
 		driverRepository2.save(driver);
+
+		customer.getTripBookingList().add(bookedTrip);
+		customerRepository2.save(customer);
 
 		return bookedTrip;
 	}
@@ -76,9 +80,14 @@ public class CustomerServiceImpl implements CustomerService {
 		trip.setStatus(TripStatus.CANCELED);
 
 		Driver driver = trip.getDriver();
+		driver.getTripBookingList().remove(trip);
 		driver.getCab().setAvailable(true);
 
+		Customer customer = trip.getCustomer();
+		customer.getTripBookingList().remove(trip);
+
 		driverRepository2.save(driver);
+		customerRepository2.save(customer);
 		tripBookingRepository2.save(trip);
 	}
 
