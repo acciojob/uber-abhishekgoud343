@@ -36,6 +36,9 @@ public class TripBooking {
         this.customer = customer;
     }
 
+    public TripBooking() {
+    }
+
     public void setTripBookingId(Integer tripBookingId) {
         this.tripBookingId = tripBookingId;
     }
