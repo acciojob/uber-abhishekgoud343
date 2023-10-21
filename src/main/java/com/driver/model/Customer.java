@@ -15,8 +15,7 @@ public class Customer {
 
     private String password;
 
-    @ManyToOne
-    @JoinColumn
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Customer(String mobile, String password) {
