@@ -27,6 +27,14 @@ public class Customer {
     public Customer() {
     }
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -49,9 +57,5 @@ public class Customer {
 
     public void setTripBOokingList(List<TripBooking> tripBOokingList) {
         this.tripBOokingList = tripBOokingList;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
     }
 }

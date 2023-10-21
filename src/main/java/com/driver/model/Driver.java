@@ -29,6 +29,14 @@ public class Driver {
     public Driver() {
     }
 
+    public Integer getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Integer driverId) {
+        this.driverId = driverId;
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -59,9 +67,5 @@ public class Driver {
 
     public void setCab(Cab cab) {
         this.cab = cab;
-    }
-
-    public Integer getDriverId() {
-        return driverId;
     }
 }
