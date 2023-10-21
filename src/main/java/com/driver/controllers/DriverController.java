@@ -1,6 +1,7 @@
 package com.driver.controllers;
 
 import com.driver.services.DriverService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +21,12 @@ public class DriverController {
 	}
 	
 	@DeleteMapping(value = "/delete")
-	public void deleteDriver(@RequestParam Integer driverId){
+	public void deleteDriver(@RequestParam Integer driverId) {
+		driverService.removeDriver(driverId);
 	}
 
 	@PutMapping("/status")
-	public void updateStatus(@RequestParam Integer driverId){
+	public void updateStatus(@RequestParam Integer driverId) {
+		driverService.updateStatus(driverId);
 	}
 }
