@@ -92,7 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 		driverRepository2.save(driver);
 //		customerRepository2.save(customer);
-//		tripBookingRepository2.delete(trip);
+		tripBookingRepository2.delete(trip);
 	}
 
 	@Override
