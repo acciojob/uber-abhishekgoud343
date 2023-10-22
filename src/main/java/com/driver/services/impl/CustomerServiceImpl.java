@@ -12,6 +12,7 @@ import com.driver.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -45,7 +46,7 @@ public class CustomerServiceImpl implements CustomerService {
 		//Book the driver with lowest driverId who is free (cab available variable is Boolean.TRUE). If no driver is available, throw "No cab available!" exception
 		//Avoid using SQL query
 		List<Driver> driverList = driverRepository2.findAll();
-		driverList.sort((a, b) -> (b.getDriverId() - a.getDriverId()));
+		driverList.sort(Comparator.comparingInt(Driver::getDriverId));
 
 		Driver driver = null;
 		for (Driver d : driverList)
@@ -70,8 +71,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.getTripBookingList().add(bookedTrip);
 		customerRepository2.save(customer);
 
-//		bookedTrip =
-				tripBookingRepository2.save(bookedTrip);
+		tripBookingRepository2.save(bookedTrip);
 
 		return bookedTrip;
 	}
